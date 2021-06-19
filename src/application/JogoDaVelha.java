@@ -17,16 +17,18 @@ public class JogoDaVelha {
 		char resposta;
 		do {
 			jogar(teclado);
-			System.out.print("Deseja jogar novamente (s/n)?");
 			do{
+				System.out.print("Deseja jogar novamente (s/n)?");
 				resposta = teclado.next().trim().toLowerCase().charAt(0);
 				if (resposta!='n' || resposta!='s'){
 					System.out.println("Resposta inválida!");
 				}
+				jogoMapa.limpar();
 			}while(resposta!='n' || resposta!='s');
 
 		} while (resposta != 'n');
 		
+		teclado.close();
 	}
 
 	private void jogar(Scanner teclado) {

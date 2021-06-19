@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Jogador {
     
-    private char letra;
+    private char letra = 'X';
     
     public Jogador(Mapa mapa) {
         jogar(new Scanner(System.in));
