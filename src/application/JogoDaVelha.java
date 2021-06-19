@@ -11,20 +11,19 @@ public class JogoDaVelha {
 
 	private JogoDaVelha() {
 		Scanner teclado = new Scanner(System.in);
-		jogoMapa = new Mapa();
-		jogoJogador = new Jogador(jogoMapa);
-		jogoPC = new PC(jogoMapa);
+		this.jogoMapa = new Mapa();
+		this.jogoJogador = new Jogador(this.jogoMapa);
+		this.jogoPC = new PC(this.jogoMapa);
 		char resposta;
 		do {
 			jogar(teclado);
 			do{
-				System.out.print("Deseja jogar novamente (s/n)?");
+				System.out.print("Deseja jogar novamente (s/n)? ");
 				resposta = teclado.next().trim().toLowerCase().charAt(0);
-				if (resposta!='n' || resposta!='s'){
+				if (resposta!='n' && resposta!='s'){
 					System.out.println("Resposta inválida!");
 				}
-				jogoMapa.limpar();
-			}while(resposta!='n' || resposta!='s');
+			}while(resposta!='n' && resposta!='s');
 
 		} while (resposta != 'n');
 		
@@ -32,12 +31,29 @@ public class JogoDaVelha {
 	}
 
 	private void jogar(Scanner teclado) {
+		int numeroJogadas = 0;
+		boolean alguemVenceu = false;
+
+		this.jogoMapa.limpar();
+		int quemComeca = this.jogoMapa.sortear(0, 2);
+		
+		do{
+			this.jogoMapa.desenhar(numeroJogadas);
+			if(quemComeca%2 == 0){
+				alguemVenceu = this.jogoPC.jogar();
+
+			}else{
+				alguemVenceu = this.jogoJogador.jogar(teclado);
+
+			}
+
+			quemComeca ++;
+			numeroJogadas ++;
+		}while(numeroJogadas <= 9 && !alguemVenceu);
 
 	}
 
 	public static void main(String[] args) {
 		new JogoDaVelha();
 	}
-
-
 }

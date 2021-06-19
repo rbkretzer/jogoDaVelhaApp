@@ -17,7 +17,7 @@ public class Mapa {
         }
     }
     public void desenhar(int jogada){        
-        System.out.println("------------- .. jogador: "+jogada);
+        System.out.println("------------- .. jogada: "+jogada);
         for(int linha = 0 ; linha<3; linha++){
             for(int coluna = 0; coluna<3;coluna++){
                 System.out.print("| "+this.mapa[coluna][linha]+" ");
@@ -28,14 +28,44 @@ public class Mapa {
             }
             System.out.println("-------------");
         }
-
     }
+
     public boolean jogar(int l, int c, char jogador){
         if (mapa[c][l] == ' ') {
             mapa[c][l] = jogador;
+
+            return false;
         }
+        return true; // retorna true para repetir a jogada
+
     }
     public boolean verificarGanhador(char jogador){
-        
+        int qtdDaLetra = 0;
+        int posicao = 0;
+        for(int linha = 0; linha<3; linha++){
+            if(this.mapa[linha][posicao] == jogador){
+                qtdDaLetra ++;
+            }
+            if(qtdDaLetra == 3){
+                return true;
+            }
+            posicao ++;
+        }
+        qtdDaLetra = 0;
+        posicao = 0;
+        for(int coluna = 0; coluna<3; coluna++){
+            if(this.mapa[posicao][coluna] == jogador){
+                qtdDaLetra ++;
+            }
+            if(qtdDaLetra == 3){
+                return true;
+            }
+            posicao ++;
+        }
+        boolean temNaDiagoanal = this.mapa[1][1] == jogador && (this.mapa[0][0] == jogador && this.mapa[2][2] == jogador) || (this.mapa[0][2] == jogador && this.mapa[2][0] == jogador);
+        if(temNaDiagoanal){
+            return true;
+        }
+        return false;
     }
 }
