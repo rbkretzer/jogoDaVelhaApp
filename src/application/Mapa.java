@@ -67,8 +67,8 @@ public class Mapa {
             }
             qtdDaLetra = 0;
         }
-        boolean temNaDiagoanal = this.mapa[1][1] == jogador && ((this.mapa[0][0] == jogador && this.mapa[2][2] == jogador) || (this.mapa[0][2] == jogador && this.mapa[2][0] == jogador));
-        if(temNaDiagoanal){
+        boolean temNaDiagonal = this.mapa[1][1] == jogador && ((this.mapa[0][0] == jogador && this.mapa[2][2] == jogador) || (this.mapa[0][2] == jogador && this.mapa[2][0] == jogador));
+        if(temNaDiagonal){
             return true;
         }
         return false;
