@@ -17,17 +17,14 @@ public class JogoDaVelha {
 		char resposta;
 		do {
 			jogar(teclado);
-			do{
-				System.out.println("\n________________________\nDeseja jogar novamente (s/n)? ");
-				resposta = teclado.next().trim().toLowerCase().charAt(0);
-				if (resposta!='n' && resposta!='s'){
-					System.out.println("Resposta inválida!");
-				}
-			}while(resposta!='n' && resposta!='s');
-
+			System.out.println("\n________________________\nDeseja jogar novamente (s/n)? ");
+			resposta = teclado.next().trim().toLowerCase().charAt(0);
+			while(resposta!='n' && resposta!='s') {
+			System.out.println("Resposta inválida!");
+			resposta = teclado.next().trim().toLowerCase().charAt(0);
+			}
 		} while (resposta != 'n');
 		System.out.println("--- FIM ---");
-		
 		teclado.close();
 	}
 
