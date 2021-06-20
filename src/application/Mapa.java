@@ -36,33 +36,35 @@ public class Mapa {
 
             return false;
         }
+        System.out.println(" posição inválida!");
         return true; // retorna true para repetir a jogada
 
     }
     public boolean verificarGanhador(char jogador){
         int qtdDaLetra = 0;
-        int posicao = 0;
-        for(int linha = 0; linha<3; linha++){
-            if(this.mapa[linha][posicao] == jogador){
-                qtdDaLetra ++;
+        for(int linha = 0; linha<3; linha++){ //for para verificar as linhas
+            for(int coluna = 0; coluna < 3; coluna++) {
+                if(this.mapa[linha][coluna] == jogador){
+                    qtdDaLetra ++;
+                }
+                if(qtdDaLetra == 3){
+                    return true;
+                }
             }
-            if(qtdDaLetra == 3){
-                return true;
-            }
-            posicao ++;
+            qtdDaLetra = 0;
         }
-        qtdDaLetra = 0;
-        posicao = 0;
-        for(int coluna = 0; coluna<3; coluna++){
-            if(this.mapa[posicao][coluna] == jogador){
-                qtdDaLetra ++;
+        for(int coluna = 0; coluna<3; coluna++){//for para verificar as colunas
+            for(int linha = 0; linha < 3; linha++) {
+                if(this.mapa[linha][coluna] == jogador){
+                    qtdDaLetra ++;
+                }
+                if(qtdDaLetra == 3){
+                    return true;
+                }
             }
-            if(qtdDaLetra == 3){
-                return true;
-            }
-            posicao ++;
+            qtdDaLetra = 0;
         }
-        boolean temNaDiagoanal = this.mapa[1][1] == jogador && (this.mapa[0][0] == jogador && this.mapa[2][2] == jogador) || (this.mapa[0][2] == jogador && this.mapa[2][0] == jogador);
+        boolean temNaDiagoanal = this.mapa[1][1] == jogador && ((this.mapa[0][0] == jogador && this.mapa[2][2] == jogador) || (this.mapa[0][2] == jogador && this.mapa[2][0] == jogador));
         if(temNaDiagoanal){
             return true;
         }

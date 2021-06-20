@@ -12,11 +12,14 @@ public class PC {
 
     public boolean jogar() {
         boolean repetir = false;
+        int linha = 0;
+        int coluna = 0;
         do{
-            int linha = this.mapa.sortear(0, 3);
-            int coluna = this.mapa.sortear(0, 3);
+             linha = this.mapa.sortear(0, 3);
+             coluna = this.mapa.sortear(0, 3);
             repetir = this.mapa.jogar(linha, coluna, this.letra);
         }while(repetir);
+        System.out.println("PC["+ linha +","+ coluna +"]");
 
         boolean venceu = this.mapa.verificarGanhador(this.letra);
         if(venceu){

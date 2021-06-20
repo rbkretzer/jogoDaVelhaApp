@@ -18,7 +18,7 @@ public class JogoDaVelha {
 		do {
 			jogar(teclado);
 			do{
-				System.out.print("Deseja jogar novamente (s/n)? ");
+				System.out.println("\n________________________\nDeseja jogar novamente (s/n)? ");
 				resposta = teclado.next().trim().toLowerCase().charAt(0);
 				if (resposta!='n' && resposta!='s'){
 					System.out.println("Resposta inválida!");
@@ -26,6 +26,7 @@ public class JogoDaVelha {
 			}while(resposta!='n' && resposta!='s');
 
 		} while (resposta != 'n');
+		System.out.println("--- FIM ---");
 		
 		teclado.close();
 	}
@@ -49,8 +50,8 @@ public class JogoDaVelha {
 
 			quemComeca ++;
 			numeroJogadas ++;
-		}while(numeroJogadas <= 9 && !alguemVenceu);
-
+		}while(numeroJogadas < 9 && !alguemVenceu);
+		this.jogoMapa.desenhar(numeroJogadas);
 	}
 
 	public static void main(String[] args) {
