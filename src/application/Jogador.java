@@ -24,6 +24,9 @@ public class Jogador {
             }while(linha>2 || linha<0 || coluna>2 || coluna<0);
 
             repetir = this.mapa.jogar(linha, coluna, this.letra);
+            if (repetir) {
+                System.out.println(" posição inválida!");
+            }
         }while(repetir);
         
         boolean venceu = this.mapa.verificarGanhador(this.letra);
