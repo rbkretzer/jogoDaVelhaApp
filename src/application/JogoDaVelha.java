@@ -44,10 +44,12 @@ public class JogoDaVelha {
 				alguemVenceu = this.jogoJogador.jogar(teclado);
 
 			}
-
 			quemComeca ++;
 			numeroJogadas ++;
 		}while(numeroJogadas < 9 && !alguemVenceu);
+		if (numeroJogadas == 9 && !alguemVenceu) {
+			System.out.println(" ... EMPATOU!");
+		}
 		this.jogoMapa.desenhar(numeroJogadas);
 	}
 

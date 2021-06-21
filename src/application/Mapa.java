@@ -28,11 +28,6 @@ public class Mapa {
             }
             System.out.println("-------------");
         }
-        boolean jogadorVenceu = verificarGanhador('X');
-        boolean pcVenceu = verificarGanhador('O');
-        if (jogada == 9 && !jogadorVenceu && !pcVenceu) {
-            System.out.println(" ... EMPATOU!");
-        }
     }
 
     public boolean jogar(int l, int c, char jogador){
