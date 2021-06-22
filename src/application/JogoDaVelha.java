@@ -20,8 +20,8 @@ public class JogoDaVelha {
 			System.out.println("\n________________________\nDeseja jogar novamente (s/n)? ");
 			resposta = teclado.next().trim().toLowerCase().charAt(0);
 			while(resposta!='n' && resposta!='s') {
-			System.out.println("Resposta inválida!");
-			resposta = teclado.next().trim().toLowerCase().charAt(0);
+				System.out.println("Resposta inválida!");
+				resposta = teclado.next().trim().toLowerCase().charAt(0);
 			}
 		} while (resposta != 'n');
 		System.out.println("--- FIM ---");
